@@ -16,10 +16,8 @@ A full-stack application for managing and tracking repair/maintenance services, 
 ### Backend
 - NestJS (Node.js framework)
 - TypeORM for database operations
-- PostgreSQL/MySQL database
+- MySQL database
 - JWT authentication
-- Passport.js for security
-- TypeScript
 
 ### Mobile App
 - Flutter
