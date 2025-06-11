@@ -16,10 +16,19 @@ export class ServicesSeeder {
   ) {}
 
   async seed() {
-    // Create a default admin user if it doesn't exist
-    const adminUser = await this.userRepository.findOne({
+    // Wait for admin user to be created
+    let adminUser = await this.userRepository.findOne({
       where: { role: Role.ADMIN }
     });
+
+    // If admin doesn't exist, wait a bit and try again (giving time for user seeder to run)
+    if (!adminUser) {
+      console.log('Waiting for admin user to be created...');
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds
+      adminUser = await this.userRepository.findOne({
+        where: { role: Role.ADMIN }
+      });
+    }
 
     if (!adminUser) {
       console.log('No admin user found. Please create an admin user first.');
