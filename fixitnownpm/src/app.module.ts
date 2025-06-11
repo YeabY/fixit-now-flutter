@@ -17,7 +17,7 @@ import { RequestsModule } from './modules/requests/requests.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'yeab1234',
+      password: '',
       database: 'fixitnow',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true, // Set to false in production
